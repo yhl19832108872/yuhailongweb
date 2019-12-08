@@ -7,7 +7,7 @@
 		.top{
 			width: 100%;
 			height: 30px;
-			margin: 0 auto;
+			margin: 0 auto; 
 			background-color: #ccc;
 		}
 		.top>img{
@@ -34,7 +34,7 @@
 		}
 		.slider{
 			width: 8400px;
-			position: absolute;
+			position           : absolute;
 			left: -1200px;
 		}
 		.slide{
@@ -247,6 +247,8 @@ function animate(obj,json,callback){
 		var a=setInterval(function(){
 			document.getElementsByTagName("p")[0].style.left=i+"px";
 			i--;
+			if(i<-275)
+				i+=1300;
 
 		},15);
 	</script>
