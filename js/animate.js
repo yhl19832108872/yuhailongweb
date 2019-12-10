@@ -1,4 +1,13 @@
-function getStyle(obj, attr){
+        var button=document.getElementsByTagName("li");
+	    var index = 1;
+	    var slider=document.getElementsByClassName("slider")[0];
+    	var zhongjian=document.getElementsByClassName("zhongjian")[0];
+    	var left=document.getElementsByClassName("zuo")[0];
+    	var right=document.getElementsByClassName("you")[0];
+    	var p=document.getElementById("p");
+    	var isMoving = false;
+    	var timer;
+		function getStyle(obj, attr){
 			if(obj.currentStyle){
 				return obj.currentStyle[attr];
 			} else {
@@ -34,78 +43,85 @@ function getStyle(obj, attr){
 				}
 			}, 30)
 		}
-        var box=document.getElementById("box");
-		var oNavlist=document.getElementById("nav").children;
-		var slider=document.getElementById("slider");
-		var left=document.getElementById("left");
-		var right=document.getElementById("right");
-		var index=1;
-		var timer;
-		var isMoving=false;
-		function next(){
-			index++;
-			navChange();
-			animate(slider,{left:-1200*index},function(){
-				if(index===6){
-					slider.style.left="-1200px";
-					index=1;
-				}
-			});
+		zhongjian.onmouseover=function(){
+		animate(left,{opacity:50});
+		animate(right,{opacity:50});
+		   
 		}
-		function prev(){
+		zhongjian.onmouseout=function(){
+		animate(left,{opacity:0});
+		animate(right,{opacity:0});
+		}
+		var i=800;
+		setInterval(function(){
+			p.style.left=i+"px";
+			i--;
+			if(i<-230)
+				i+=800;
+		},15);
+
+		function next(){
+		   index++;
+		   turnRed();
+		   animate(slider,{left:-1200*index},function(){
+		   	  if(index==6){
+		   	  	slider.style.left="-1200px";
+		   	  	index=1;
+		   	  }
+		   })
+		}
+		function former(){
 			index--;
-			navChange();
+			turnRed();
 			animate(slider,{left:-1200*index},function(){
-				if(index===0){
+				if(index==0){
 					slider.style.left="-6000px";
 					index=5;
 				}
-			});
+			})
 		}
-		var timer=setInterval(next,2000);
-		box.onmouseover=function(){
-			animate(left,{opacity:50});
-			animate(right,{opacity:50});
-			clearInterval(timer);
-		}
-		box.onmouseout=function(){
-			animate(left,{opacity:0});
-			animate(right,{opacity:0});
-			timer=setInterval(next,2000);
-		}
-
-		right.onclick=next;
-		left.onclick=prev;
-		
-
-		for(var i=0;i<oNavlist.length;i++){
-			oNavlist[i].idx=i;
-			oNavlist[i].onclick=function(){
-				
-				index=this.idx+1;
-				navChange();
-				animate(slider,{left:-1200*index})
-			}
-
-		}
-		function navChange(){
-			for(var i=0;i<oNavlist.length;i++){
-				oNavlist[i].className="";
-			}
-			if(index===6){
-				oNavlist[0].className="active";
-			}else if(index===0){
-				oNavlist[4].className="active";
-			}
-			else{
-				oNavlist[index-1].className="active";
-			}
-		}
-		var i=1050;
-		var a=setInterval(function(){
-			document.getElementsByTagName("p")[0].style.left=i+"px";
-			i--;
-			if(i<-275)
-				i+=1300;
-
-		},15);
+		 
+		var zuo=document.getElementsByClassName("zuo")[0];
+		var you=document.getElementsByClassName("you")[0];
+		zuo.onclick=former;
+		you.onclick=next;
+	    function turnRed(){
+	    	for(var i = 0;i<button.length;i++){
+	    		button[i].className="";
+	    	}
+	    	
+	    	if(index==6){
+	    	button[0].className="active";
+	    	}
+	    	else if(index==0){
+	    	button[4].className="active";
+	    	}
+	    	else{
+	    	  button[index-1].className="active";
+	        }
+	    }
+	    button[0].onclick=function(){
+	    	index=1;
+	    	animate(slider,{left:-1200*index});
+	    	turnRed();
+	    }
+	    button[1].onclick=function(){
+	    	index=2;
+	    	animate(slider,{left:-1200*index});
+	    	turnRed();
+	    }
+	    button[2].onclick=function(){
+	    	index=3;
+	    	animate(slider,{left:-1200*index});
+	    	turnRed();
+	    }
+	    button[3].onclick=function(){
+	    	index=4;
+	    	animate(slider,{left:-1200*index});
+	    	turnRed();
+	    }
+	    button[4].onclick=function(){
+	    	index=5;
+	    	animate(slider,{left:-1200*index});
+	    	turnRed();
+	    }
