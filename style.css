@@ -1,0 +1,102 @@
+.top{
+			width: 100%;
+			height: 30px;
+			margin: 0 auto; 
+			background-color: #ccc;
+		}
+		.top>img{
+			position: relative;
+			top: 7px;
+			left: 300px;
+		}
+		.in{
+			position: absolute;
+			top: 7px;
+			left: 325px;
+			margin: 0px auto;
+			width: 1000px;
+			height: 30px;
+			overflow: hidden;
+		}
+		.box{
+			width: 1200px;
+			height: 383px;
+			border:1px solid red;
+			margin: 10px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.slider{
+			width: 8400px;
+			position           : absolute;
+			left: -1200px;
+		}
+		.slide{
+			width: 1200px;
+			overflow: hidden;
+			float: left;
+		}
+		.box>span{
+			display: block;
+			width: 30px;
+			height: 50px;
+			text-align: center;
+			cursor: pointer;
+			color: #ccc;
+			top: 175px;
+			line-height: 50px;
+			background: rgb(255,0,0);
+			font-size: 30px;
+			position: absolute;
+			opacity: 0;
+		}
+		#left{
+			left: 30px;
+
+		}
+		#right{
+			right: 30px;
+		}
+		.nav>li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: #ccc;
+			cursor: pointer;
+			margin: 0 10px;
+			border-radius: 50%;
+			list-style: none;
+			text-align: center;
+		}
+		.nav{
+			height: 30px;
+			position: relative;
+			top: 330px;
+			left: 500px;
+		}
+		.nav .active{
+			background-color: red;
+
+		}
+		#l{
+			background-color: black;
+			position: fixed;
+			left: 0px;
+			width: 3px;
+			border:2px solid;
+			height: 500px;
+		}
+		#r{
+			background-color: black;
+			position: fixed;
+			right: 0px;
+			width: 3px;
+			border:2px solid;
+			height: 500px;
+		}
+		p{
+			display: inline;
+			position: relative;left: 1000px;top: 3px;
+			font-size: 10px;
+			color: red;
+		}
